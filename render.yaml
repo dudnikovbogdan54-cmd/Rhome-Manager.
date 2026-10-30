@@ -1,0 +1,28 @@
+services:
+  - type: web
+    name: rhome-manager
+    runtime: python
+    plan: starter
+    region: frankfurt
+    buildCommand: pip install -r requirements.txt
+    startCommand: python main.py
+    healthCheckPath: /health
+    envVars:
+      - key: DISCORD_TOKEN
+        sync: false
+      - key: DISCORD_GUILD_ID
+        value: "1549682975443001415"
+      - key: ALLOWED_USER_IDS
+        value: "1549414704248528946,1549531896411848717"
+      - key: CHANNEL_RULES
+        sync: false
+      - key: CHANNEL_NEWS
+        sync: false
+      - key: CHANNEL_ANNOUNCEMENTS
+        sync: false
+      - key: CHANNEL_VIDEOS
+        sync: false
+      - key: CHANNEL_STREAMS
+        sync: false
+      - key: CHANNEL_EVENTS
+        sync: false
